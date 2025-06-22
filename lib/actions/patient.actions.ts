@@ -73,3 +73,23 @@ export const registerPatient = async ({identificationDocument, ...patient}:Regis
         console.log(error)
     }
 }
+
+export const getPatient = async (userId:string) => {
+    try {
+        const patients = await databases.listDocuments(
+            '6853a7bf00043e42df21',
+            '6853a7c9001e32eb3820',
+            [
+                Query.equal('userId', userId)
+            ]
+        );
+
+        return parseStringify(patients.documents[0]);
+
+
+    } catch (error) {
+        console.log(error)
+        
+    }
+}
+

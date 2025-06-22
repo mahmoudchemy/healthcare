@@ -3,8 +3,6 @@
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import { z } from "zod"
-
-import { Button } from "@/components/ui/button"
 import {
   Form
 } from "@/components/ui/form"
@@ -26,7 +24,7 @@ export enum FormFieldType {
 }
 
  
-const ProfileForm = () => {
+const PatientForm = () => {
     const [isLoading, setIsLoading] = useState(false);
     const router = useRouter();
 
@@ -99,4 +97,4 @@ const ProfileForm = () => {
   )
 }
 
-export default ProfileForm
+export default PatientForm
