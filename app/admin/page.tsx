@@ -1,13 +1,15 @@
+import {DataTable} from "@/components/table/DataTable";
+import StatCard from "@/components/StatCard";
+import { getRecentAppointmentList } from "@/lib/actions/appointment.actions";
 import Image from "next/image";
 import Link from "next/link";
+import { columns} from "@/components/table/columns";
 
-// import { columns } from "@/components/table/columns";
-// import { DataTable } from "@/components/table/DataTable";
-// import { getRecentAppointmentList } from "@/lib/actions/appointment.actions";
-import { StatCard } from "@/components/StatCard";
+
+
 
 const AdminPage = async () => {
-//   const appointments = await getRecentAppointmentList();
+  const appointments = await getRecentAppointmentList();
 
   return (
     <div className="mx-auto flex max-w-7xl flex-col space-y-14">
@@ -36,25 +38,26 @@ const AdminPage = async () => {
         <section className="admin-stat">
           <StatCard
             type="appointments"
-            // count={appointments.scheduledCount}
+            count={appointments.scheduledCount}
             label="Scheduled appointments"
             icon={"/assets/icons/appointments.svg"}
           />
           <StatCard
             type="pending"
-            // count={appointments.pendingCount}
+            count={appointments.pendingCount}
             label="Pending appointments"
             icon={"/assets/icons/pending.svg"}
           />
           <StatCard
             type="cancelled"
-            // count={appointments?.cancelledCount}
+            count={appointments.cancelledCount}
             label="Cancelled appointments"
             icon={"/assets/icons/cancelled.svg"}
           />
         </section>
 
-        {/* <DataTable columns={columns} data={appointments.documents} /> */}
+        <DataTable columns={columns} data={appointments.documents} />
+
       </main>
     </div>
   );

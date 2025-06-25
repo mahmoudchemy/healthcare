@@ -1,14 +1,14 @@
 import clsx from "clsx";
 import Image from "next/image";
 
-type StatCardProps = {
+interface StatCardProps  {
   type: "appointments" | "pending" | "cancelled";
-//   count: number;
+  count: number;
   label: string;
   icon: string;
 };
 
-export const StatCard = ({ count = 0, label, icon, type }: StatCardProps) => {
+const StatCard = ({ count = 0, label, icon, type }: StatCardProps) => {
   return (
     <div
       className={clsx("stat-card", {
@@ -32,3 +32,5 @@ export const StatCard = ({ count = 0, label, icon, type }: StatCardProps) => {
     </div>
   );
 };
+
+export default StatCard
